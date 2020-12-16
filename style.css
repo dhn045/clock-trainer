@@ -7,6 +7,10 @@
     align-items: middle;
 }
 
+h3 {
+    text-align: center;
+}
+
 .clockbox,
 #clock {
     width: 100%;
