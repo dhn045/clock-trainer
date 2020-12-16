@@ -23,6 +23,8 @@ const SECONDHAND = document.querySelector("#second");
 //   }
 let hr = 0;
 let min = 0;
+let total = 0;
+let correct = 0;
 run_the_clock();
 function run_the_clock(){
   hr = Math.floor(Math.random() * 12);
@@ -42,6 +44,10 @@ function run_the_clock(){
 //   SECONDHAND.style.transform = "rotate(" + secPosition + "deg)";
 }
 
+function update_score() {
+  document.getElementById("correct").innerHTML = "Correct: " + correct + "/" + total;
+}
+
 document.getElementById("inHour").onkeydown = function(event) {
     if(event.keyCode == 13) {
         document.getElementById("inMinute").focus();
@@ -53,12 +59,15 @@ document.getElementById("inMinute").onkeydown = function(event) {
           console.log("Hour: "+hr+ " Minute: "+ min);
         if(parseInt(document.getElementById("inHour").value) == hr && parseInt(document.getElementById("inMinute").value) == min) {
             run_the_clock();
+            correct++;
         }
         
         document.getElementById("inHour").value = '';
         document.getElementById("inMinute").value = '';
         
         document.getElementById("inHour").focus();
+        total++;
+        update_score();
     }
 }
 

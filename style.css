@@ -3,7 +3,6 @@
 .main {
     display: flex;
     padding: 2em;
-    height: 90vh;
     justify-content: center;
     align-items: middle;
 }
